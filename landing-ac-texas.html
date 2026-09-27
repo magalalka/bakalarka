@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lone Star Air Co. — AC Installation & Repair, Central Texas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#F3EEE4; --sand-line:#E2DACB; --card:#FFFFFF;
+    --ink:#1C1A16; --muted:#746C5E;
+    --night:#102422; --night-line:rgba(255,255,255,.14); --night-muted:#A9BDB9;
+    --heat:#C1440E; --cool:#2F8F86;
+    --hero-accent:var(--heat);
+    --ph:#CFC7B4; --ph-text:#96907F;
+    --radius:3px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--sand); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; margin:0; letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  section{padding:72px 0;}
+  @media (max-width:640px){ section{padding:52px 0;} }
+
+  .ph{background:var(--ph); border-radius:var(--radius); display:flex; align-items:center; justify-content:center; color:var(--ph-text); font-size:13px;}
+
+  /* Header */
+  header.site{position:sticky; top:0; z-index:20; background:rgba(243,238,228,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--sand-line);}
+  .navrow{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1120px; margin:0 auto;}
+  .logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px;}
+  .logo span{color:var(--heat);}
+  nav.links{display:flex; gap:28px; font-size:14.5px;}
+  nav.links a{text-decoration:none; color:var(--ink);}
+  @media (max-width:860px){ nav.links{display:none;} }
+  .navcta{display:flex; align-items:center; gap:16px;}
+  .phone-link{font-size:14.5px; font-weight:600; text-decoration:none; display:none;}
+  @media (min-width:860px){ .phone-link{display:inline;} }
+  .btn{display:inline-block; padding:11px 20px; border-radius:var(--radius); font-weight:600; font-size:14px; text-decoration:none; border:1px solid transparent; cursor:pointer;}
+  .btn-heat{background:var(--heat); color:#fff;}
+  .btn-heat:hover{background:#a5390b;}
+  .btn-outline-dark{border-color:var(--night-line); color:#fff;}
+  .btn-outline-light{border-color:var(--sand-line); color:var(--ink);}
+
+  /* Hero */
+  #hero{background:var(--night); color:#fff; padding:80px 0 90px;}
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr; gap:36px;} }
+  #hero h1{font-size:clamp(34px,4.6vw,54px); line-height:1.08; max-width:15ch;}
+  #hero h1 em{font-style:normal; color:var(--hero-accent);}
+  #hero .lead{color:var(--night-muted); font-size:17px; max-width:44ch; margin:20px 0 30px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-ph{aspect-ratio:4/5; width:100%;}
+
+  /* Stats */
+  #stats{background:var(--cool); color:#fff; padding:44px 0;}
+  .stats-row{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  @media (max-width:760px){ .stats-row{grid-template-columns:1fr 1fr;} }
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(26px,3vw,36px);}
+  .stat-lbl{font-size:13px; opacity:0.9; margin-top:4px;}
+
+  /* Section headers */
+  .kicker{color:var(--heat); font-weight:600; font-size:14px; margin-bottom:10px;}
+  .sec-head{max-width:640px; margin-bottom:44px;}
+  .sec-head h2{font-size:clamp(26px,3.2vw,36px); line-height:1.15;}
+  .sec-head p{color:var(--muted); margin-top:14px; font-size:16px;}
+
+  /* Services */
+  .services-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  @media (max-width:700px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{position:relative; background:var(--card); border:1px solid var(--sand-line); border-top:3px solid var(--heat); border-radius:var(--radius); padding:26px; transition:box-shadow .2s ease, border-color .2s ease;}
+  .service-card.cool{border-top-color:var(--cool);}
+  .service-card .ph{width:44px; height:44px; margin-bottom:16px; font-size:0;}
+  .service-card h3{font-size:19px; margin-bottom:8px;}
+  .service-card p{color:var(--muted); font-size:14.5px;}
+  .service-card.highlighted{border-color:var(--hero-accent); box-shadow:0 0 0 2px var(--hero-accent);}
+  .service-card .tag{display:none; position:absolute; top:-11px; left:22px; background:var(--hero-accent); color:#fff; font-size:11.5px; font-weight:600; padding:3px 10px; border-radius:2px;}
+  .service-card.highlighted .tag{display:inline-block;}
+
+  /* Process */
+  #process{background:var(--card); border-top:1px solid var(--sand-line); border-bottom:1px solid var(--sand-line);}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:0;}
+  @media (max-width:860px){ .steps{grid-template-columns:1fr; gap:28px;} }
+  .step{position:relative; padding-right:24px;}
+  .step:not(:last-child){border-right:1px solid var(--sand-line);}
+  @media (max-width:860px){ .step:not(:last-child){border-right:none; border-bottom:1px solid var(--sand-line); padding-bottom:24px;} }
+  .step-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:var(--heat); margin-bottom:10px;}
+  .step h3{font-size:16.5px; margin-bottom:8px;}
+  .step p{color:var(--muted); font-size:14px;}
+
+  /* Why us */
+  .why-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;}
+  @media (max-width:860px){ .why-grid{grid-template-columns:1fr;} }
+  .why-ph{aspect-ratio:1/1; width:100%;}
+  .why-callout{background:var(--night); color:#fff; padding:22px; border-radius:var(--radius); margin-bottom:24px; max-width:340px;}
+  .why-callout .stat-num{color:var(--heat);}
+  .why-list{list-style:none; margin:0; padding:0;}
+  .why-list li{display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--sand-line);}
+  .why-list li:first-child{border-top:none;}
+  .why-mark{color:var(--cool); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;}
+  .why-list h3{font-size:16px; margin-bottom:4px;}
+  .why-list p{color:var(--muted); font-size:14px;}
+
+  /* Testimonials */
+  #testimonials{background:var(--night); color:#fff;}
+  #testimonials .sec-head p{color:var(--night-muted);}
+  #testimonials .kicker{color:#E58A5C;}
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:820px){ .test-grid{grid-template-columns:1fr;} }
+  .test-card{border:1px solid var(--night-line); border-radius:var(--radius); padding:26px;}
+  .test-mark{font-family:'Space Grotesk',sans-serif; font-size:34px; color:var(--heat); line-height:1;}
+  .test-card p.quote{margin:14px 0 20px; font-size:15px; color:#EDEDE9;}
+  .test-name{font-weight:600; font-size:14px;}
+  .test-city{color:var(--night-muted); font-size:13px;}
+  .stars{color:var(--heat); font-size:13px; margin-top:4px;}
+
+  /* Service area */
+  .area-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:center;}
+  @media (max-width:820px){ .area-grid{grid-template-columns:1fr;} }
+  .area-ph{aspect-ratio:4/3; width:100%;}
+  .city-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 24px;}
+  .city-grid div{padding:9px 0; border-top:1px solid var(--sand-line); font-size:14.5px;}
+  .city-grid div:nth-child(-n+2){border-top:none;}
+
+  /* FAQ */
+  .faq-item{border-top:1px solid var(--sand-line);}
+  .faq-item:last-child{border-bottom:1px solid var(--sand-line);}
+  .faq-item summary{cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; padding:20px 0; font-weight:600; font-size:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{font-size:20px; color:var(--heat); font-family:'Space Grotesk',sans-serif;}
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item p{color:var(--muted); font-size:14.5px; padding:0 0 22px; max-width:70ch;}
+
+  /* Final CTA */
+  #closing{background:var(--hero-accent); color:#fff; text-align:center;}
+  #closing h2{font-size:clamp(28px,4vw,42px); max-width:16ch; margin:0 auto 18px;}
+  #closing p{color:rgba(255,255,255,.85); margin-bottom:28px;}
+  #closing .btn-outline-dark{border-color:rgba(255,255,255,.5);}
+
+  /* Footer */
+  footer{background:var(--night); color:var(--night-muted); font-size:13.5px;}
+  .foot-inner{padding:52px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px;}
+  @media (max-width:700px){ .foot-grid{grid-template-columns:1fr; gap:28px;} }
+  .foot-grid h4{color:#fff; font-family:'Inter',sans-serif; font-weight:600; font-size:13.5px; margin-bottom:14px;}
+  .foot-grid ul{list-style:none; margin:0; padding:0;}
+  .foot-grid li{margin-bottom:9px;}
+  .foot-grid a{text-decoration:none;}
+  .foot-bottom{border-top:1px solid var(--night-line); padding:18px 0; font-size:12.5px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero-fade{animation:fadeUp .7s ease both;}
+    .hero-fade.d2{animation-delay:.1s;}
+    .hero-fade.d3{animation-delay:.2s;}
+    @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+  }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--cool); outline-offset:2px;}
+
+  /* Floating personalization control */
+  #fab{
+    position:fixed; bottom:28px; right:28px; width:80px; height:80px; border-radius:50%;
+    background:var(--night); border:none; cursor:pointer; z-index:50;
+    box-shadow:0 8px 24px rgba(16,36,34,0.35);
+    display:flex; align-items:center; justify-content:center;
+  }
+  #fab:hover{background:#0b1a19;}
+  #fab svg{width:28px; height:28px;}
+
+  #panel{
+    position:fixed; bottom:120px; right:28px; width:360px; max-width:calc(100vw - 40px);
+    max-height:70vh; overflow-y:auto; background:var(--card); border:1px solid var(--sand-line);
+    border-radius:8px; box-shadow:0 16px 48px rgba(16,36,34,0.28); z-index:50;
+    padding:20px; display:none; font-size:14px;
+  }
+  #panel.open{display:block;}
+  #panel h3{font-size:15px; margin-bottom:4px;}
+  #panel .panel-sub{color:var(--muted); font-size:12.5px; margin-bottom:16px;}
+  #panel label{display:block; font-size:12px; color:var(--muted); margin:12px 0 5px;}
+  #panel input[type=text], #panel input[type=password]{
+    width:100%; padding:9px 10px; border:1px solid var(--sand-line); border-radius:4px; font:14px 'Inter',sans-serif;
+  }
+  .segmented{display:flex; border:1px solid var(--sand-line); border-radius:4px; overflow:hidden;}
+  .segmented button{flex:1; padding:8px; font-size:12.5px; font-weight:600; background:#fff; border:none; cursor:pointer; color:var(--muted);}
+  .segmented button.active{background:var(--night); color:#fff;}
+  #panel .btn-row{display:flex; gap:8px; margin-top:14px;}
+  #panel .btn-row button{flex:1; padding:9px; font-size:12.5px;}
+  .btn-cool{background:var(--cool); color:#fff; border:none; border-radius:4px; font-weight:600; cursor:pointer;}
+  .btn-ghost{background:transparent; color:var(--muted); border:1px solid var(--sand-line); border-radius:4px; cursor:pointer;}
+  .preset-row{display:flex; gap:8px; margin-top:8px;}
+  .preset-row button{flex:1; font-size:11.5px; padding:8px 6px; background:var(--sand); border:1px solid var(--sand-line); border-radius:4px; cursor:pointer; color:var(--ink);}
+  #panel .status{margin-top:12px; font-size:12px; color:var(--muted); border-top:1px solid var(--sand-line); padding-top:12px;}
+  #panel .close{position:absolute; top:14px; right:16px; background:none; border:none; font-size:18px; color:var(--muted); cursor:pointer;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="navrow">
+    <div class="logo">Lone Star <span>Air</span> Co.</div>
+    <nav class="links">
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#process" data-i18n="nav_process">Process</a>
+      <a href="#testimonials" data-i18n="nav_reviews">Reviews</a>
+      <a href="#area" data-i18n="nav_area">Service Area</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="navcta">
+      <a class="phone-link" href="tel:5125550142">(512) 555-0142</a>
+      <a class="btn btn-heat" href="#closing" data-i18n="nav_cta">Get Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="hero-fade" id="heroTitle" data-i18n="heroTitle">Texas heat doesn't take a day off. <em>Neither do we.</em></h1>
+      <p class="lead hero-fade d2" id="heroLead" data-i18n="heroLead">Same-day AC installation and repair across Central Texas, from licensed techs who show up on time and quote you a flat rate before they touch a thing.</p>
+      <div class="hero-actions hero-fade d3">
+        <a class="btn btn-heat" href="#closing" id="heroCta" data-i18n="heroCta">Get a Free Quote</a>
+        <a class="btn btn-outline-dark" href="tel:5125550142">Call (512) 555-0142</a>
+      </div>
+    </div>
+    <div class="ph hero-ph">photo</div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="wrap stats-row">
+    <div><div class="stat-num">14,000+</div><div class="stat-lbl" data-i18n="stat1_lbl">AC units installed</div></div>
+    <div><div class="stat-num">35 min</div><div class="stat-lbl" data-i18n="stat2_lbl">avg. emergency response</div></div>
+    <div><div class="stat-num">20 yrs</div><div class="stat-lbl" data-i18n="stat3_lbl">serving Central Texas</div></div>
+    <div><div class="stat-num">4.9★</div><div class="stat-lbl" data-i18n="stat4_lbl">average customer rating</div></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="services_kicker">Services</div>
+      <h2 data-i18n="services_h2">Whatever your unit needs, we've got a truck for it</h2>
+      <p data-i18n="services_sub">From a full system swap to a 2am compressor failure in August, one call covers it.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-service="install">
+        <span class="tag" data-i18n="tag_recommended1">Recommended for you</span>
+        <div class="ph">.</div>
+        <h3 data-i18n="svc_install_title">AC Installation</h3>
+        <p data-i18n="svc_install_desc">New systems sized correctly for your home, installed in a day for most single-family properties.</p>
+      </div>
+      <div class="service-card cool" data-service="repair">
+        <span class="tag" data-i18n="tag_recommended2">Recommended for you</span>
+        <div class="ph">.</div>
+        <h3 data-i18n="svc_repair_title">Repair & Diagnostics</h3>
+        <p data-i18n="svc_repair_desc">Flat-rate diagnosis, upfront pricing before any repair starts, parts stocked on the truck.</p>
+      </div>
+      <div class="service-card cool" data-service="maintenance">
+        <span class="tag" data-i18n="tag_recommended3">Recommended for you</span>
+        <div class="ph">.</div>
+        <h3 data-i18n="svc_maintenance_title">Maintenance Plans</h3>
+        <p data-i18n="svc_maintenance_desc">Two visits a year to catch small problems before they turn into a July breakdown.</p>
+      </div>
+      <div class="service-card" data-service="emergency">
+        <span class="tag" data-i18n="tag_recommended4">Recommended for you</span>
+        <div class="ph">.</div>
+        <h3 data-i18n="svc_emergency_title">24/7 Emergency Service</h3>
+        <p data-i18n="svc_emergency_desc">No overnight charge, no weekend surcharge. A broken AC in Texas is always an emergency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="process_kicker">How it works</div>
+      <h2 data-i18n="process_h2">From first call to cool air, four steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><h3 data-i18n="step1_title">Call or book online</h3><p data-i18n="step1_desc">Tell us what's going on. Most calls get a same-day slot.</p></div>
+      <div class="step"><div class="step-num">02</div><h3 data-i18n="step2_title">Free on-site diagnosis</h3><p data-i18n="step2_desc">A licensed tech inspects the system and gives you a flat-rate quote.</p></div>
+      <div class="step"><div class="step-num">03</div><h3 data-i18n="step3_title">Install or repair, same day</h3><p data-i18n="step3_desc">Most jobs are done before the day is out, cleanup included.</p></div>
+      <div class="step"><div class="step-num">04</div><h3 data-i18n="step4_title">Ongoing maintenance</h3><p data-i18n="step4_desc">We remind you before filters and coils need attention, not after.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap why-grid">
+    <div class="ph why-ph">photo</div>
+    <div>
+      <div class="kicker" data-i18n="why_kicker">Why Texans choose us</div>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:24px;" data-i18n="why_h2">Licensed, upfront, and actually local</h2>
+      <div class="why-callout">
+        <div class="stat-num">1 day</div>
+        <div class="stat-lbl" style="opacity:.85;" data-i18n="why_callout_lbl">average full install, start to finish</div>
+      </div>
+      <ul class="why-list">
+        <li><span class="why-mark">✓</span><div><h3 data-i18n="why1_title">Texas-licensed & insured technicians</h3><p data-i18n="why1_desc">Every tech is background-checked and certified, not a subcontractor you've never met.</p></div></li>
+        <li><span class="why-mark">✓</span><div><h3 data-i18n="why2_title">Flat-rate pricing before we start</h3><p data-i18n="why2_desc">You approve the number before any tool comes out of the truck.</p></div></li>
+        <li><span class="why-mark">✓</span><div><h3 data-i18n="why3_title">10-year parts warranty</h3><p data-i18n="why3_desc">On every new system we install, no fine print.</p></div></li>
+        <li><span class="why-mark">✓</span><div><h3 data-i18n="why4_title">Financing available</h3><p data-i18n="why4_desc">0% options for qualified homeowners on full replacements.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="testi_kicker">Reviews</div>
+      <h2 data-i18n="testi_h2">What Central Texas homeowners say</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p class="quote" data-i18n="testi1_quote">Unit died on the hottest day of the year. They had someone at my door in under an hour and it was fixed before dinner.</p>
+        <div class="test-name">Dana R.</div>
+        <div class="test-city">Round Rock, TX</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p class="quote" data-i18n="testi2_quote">Quoted a flat price, stuck to it, and the new system is noticeably quieter than the old one. No surprises on the invoice.</p>
+        <div class="test-name">Marcus T.</div>
+        <div class="test-city">Georgetown, TX</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div class="test-card">
+        <div class="test-mark">"</div>
+        <p class="quote" data-i18n="testi3_quote">Been on their maintenance plan for three years. Haven't had a single emergency call since I signed up.</p>
+        <div class="test-name">Priya K.</div>
+        <div class="test-city">Cedar Park, TX</div>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="area">
+  <div class="wrap area-grid">
+    <div>
+      <div class="kicker" data-i18n="area_kicker">Service Area</div>
+      <h2 style="font-size:clamp(24px,3vw,32px); margin-bottom:20px;" data-i18n="area_h2">Serving Central Texas, truck by truck</h2>
+      <p style="color:var(--muted); margin-bottom:24px;" data-i18n="area_sub">If you're not on this list, call us anyway — we're adding routes every quarter.</p>
+      <div class="city-grid">
+        <div>Austin</div><div>Round Rock</div>
+        <div>Georgetown</div><div>Cedar Park</div>
+        <div>Pflugerville</div><div>San Marcos</div>
+        <div>Kyle</div><div>Leander</div>
+      </div>
+    </div>
+    <div class="ph area-ph">map</div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker" data-i18n="faq_kicker">FAQ</div>
+      <h2 data-i18n="faq_h2">Before you call, a few answers</h2>
+    </div>
+    <div>
+      <details class="faq-item" open>
+        <summary><span data-i18n="faq1_q">How long does a full AC installation take?</span> <span class="plus">+</span></summary>
+        <p data-i18n="faq1_a">Most single-family homes are done in one day, start to finish, including removal of the old unit and a full system test before we leave.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="faq2_q">Do I need a permit to replace my system?</span> <span class="plus">+</span></summary>
+        <p data-i18n="faq2_a">In most Central Texas municipalities, yes — and we handle the permit filing as part of every installation, no extra paperwork on your end.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="faq3_q">What SEER rating should I get?</span> <span class="plus">+</span></summary>
+        <p data-i18n="faq3_a">We size and recommend based on your home's square footage, insulation, and your budget — not just the highest number on the shelf.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="faq4_q">Is financing really 0%?</span> <span class="plus">+</span></summary>
+        <p data-i18n="faq4_a">For qualified homeowners on full system replacements, yes. We'll walk you through eligibility during your free quote.</p>
+      </details>
+      <details class="faq-item">
+        <summary><span data-i18n="faq5_q">Do you charge more for nights and weekends?</span> <span class="plus">+</span></summary>
+        <p data-i18n="faq5_a">No. A broken AC doesn't wait for business hours, so neither does our pricing.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="closing">
+  <div class="wrap">
+    <h2 data-i18n="closing_h2">Stop sweating it out.</h2>
+    <p data-i18n="closing_sub">Free quotes, same-day slots most weeks, and a team that actually answers the phone.</p>
+    <a class="btn btn-outline-dark" href="tel:5125550142">Call (512) 555-0142</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;">Lone Star Air Co.</div>
+        <p style="margin-top:12px; max-width:32ch;" data-i18n="foot_tagline">Licensed AC installation, repair, and maintenance across Central Texas since 2006.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot_company_h4">Company</h4>
+        <ul>
+          <li><a href="#services" data-i18n="foot_nav_services">Services</a></li>
+          <li><a href="#testimonials" data-i18n="foot_nav_reviews">Reviews</a></li>
+          <li><a href="#area" data-i18n="foot_nav_area">Service Area</a></li>
+          <li><a href="#faq" data-i18n="foot_nav_faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_contact_h4">Contact</h4>
+        <ul>
+          <li><a href="tel:5125550142">(512) 555-0142</a></li>
+          <li><a href="mailto:hello@lonestarair.example">hello@lonestarair.example</a></li>
+          <li>Austin, TX</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div data-i18n="foot_copyright">© 2026 Lone Star Air Co. TACLA Licensed.</div>
+      <div data-i18n="foot_note">Prototype for bachelor's thesis — adaptive UI personalization using LLMs.</div>
+    </div>
+  </div>
+</footer>
+
+<button id="fab" aria-label="Personalize this page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/>
+  </svg>
+</button>
+
+<div id="panel">
+  <button class="close" id="panelClose" aria-label="Close">×</button>
+  <h3>Personalize this page</h3>
+  <div class="panel-sub">Bachelor's thesis prototype — LLM-driven UI adaptation</div>
+
+  <label>Accent mode (manual — explicit personalization)</label>
+  <div class="segmented" id="modeSeg">
+    <button data-mode="urgent" class="active">Urgent</button>
+    <button data-mode="trust">Trust-building</button>
+  </div>
+
+  <label for="apiKey">Anthropic API key (used only in this browser)</label>
+  <input type="password" id="apiKey" placeholder="sk-ant-...">
+
+  <label for="persona">Describe who you are, or ask for a change (color, language, anything)</label>
+  <input type="text" id="persona" placeholder='e.g. "translate this page to Czech" or "make the accent color purple"'>
+
+  <div class="btn-row">
+    <button class="btn-cool" id="runAI">Personalize with AI</button>
+    <button class="btn-ghost" id="resetBtn">Reset</button>
+  </div>
+
+  <div class="preset-row">
+    <button id="presetUrgent">Example: AC just died</button>
+    <button id="presetTrust">Example: Planning ahead</button>
+  </div>
+
+  <div class="status" id="status">Default page — no personalization applied yet.</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const SERVICES = ['install','repair','maintenance','emergency'];
+
+// ---- Palette: the page's own CSS custom properties, all controllable ----
+const PALETTE_KEYS = ['sand','night','heat','cool','ink','card'];
+const ORIGINAL_PALETTE = { sand:'#F3EEE4', night:'#102422', heat:'#C1440E', cool:'#2F8F86', ink:'#1C1A16', card:'#FFFFFF' };
+
+// ---- Content: every translatable/rewritable text node on the page ----
+const ORIGINAL_CONTENT = {};
+document.querySelectorAll('[data-i18n]').forEach(el => { ORIGINAL_CONTENT[el.dataset.i18n] = el.textContent.trim(); });
+// heroTitle keeps its "Neither do we." emphasis span only in its untouched default state
+const ORIGINAL_HERO_HTML = 'Texas heat doesn\'t take a day off. <em>Neither do we.</em>';
+
+function setMode(mode){
+  document.body.style.setProperty('--hero-accent', mode === 'trust' ? 'var(--cool)' : 'var(--heat)');
+  document.querySelectorAll('#modeSeg button').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+}
+
+function highlightService(key){
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.classList.toggle('highlighted', card.dataset.service === key);
+  });
+}
+
+function applyPalette(palette){
+  if (!palette) return;
+  PALETTE_KEYS.forEach(key => {
+    if (palette[key] && /^#[0-9a-fA-F]{3,8}$/.test(palette[key])) {
+      document.documentElement.style.setProperty('--' + key, palette[key]);
+    }
+  });
+}
+
+function applyContent(content){
+  if (!content) return;
+  Object.keys(content).forEach(key => {
+    const el = document.querySelector('[data-i18n="' + key + '"]');
+    if (el && typeof content[key] === 'string' && content[key].trim()) {
+      el.textContent = content[key];
+    }
+  });
+}
+
+function applyFontScale(scale){
+  if (typeof scale !== 'number') return;
+  const clamped = Math.max(1, Math.min(1.6, scale));
+  document.body.style.zoom = clamped;
+}
+
+function applyResult(data){
+  if (data.mode) setMode(data.mode);
+  applyPalette(data.palette);
+  applyContent(data.content);
+  applyFontScale(data.fontScale);
+  if (data.highlightService && SERVICES.includes(data.highlightService)) highlightService(data.highlightService);
+}
+
+function resetAll(){
+  setMode('urgent');
+  document.documentElement.removeAttribute('style');
+  document.body.style.zoom = '';
+  applyPalette(ORIGINAL_PALETTE);
+  applyContent(ORIGINAL_CONTENT);
+  $('heroTitle').innerHTML = ORIGINAL_HERO_HTML;
+  document.querySelectorAll('.service-card').forEach(c => c.classList.remove('highlighted'));
+  $('status').textContent = 'Default page — no personalization applied yet.';
+  $('persona').value = '';
+}
+
+document.querySelectorAll('#modeSeg button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setMode(btn.dataset.mode);
+    $('status').textContent = 'Manual mode applied: ' + btn.dataset.mode + ' (no AI call, explicit personalization).';
+  });
+});
+
+$('presetUrgent').addEventListener('click', () => {
+  applyResult({
+    mode: 'urgent',
+    content: {
+      heroTitle: 'AC down in Texas heat? We\'re already on our way.',
+      heroLead: 'Emergency techs dispatched within the hour, no overnight or weekend surcharge.',
+      heroCta: 'Get Emergency Help Now'
+    },
+    highlightService: 'emergency'
+  });
+  $('status').textContent = 'Example applied (offline, no API call): emergency repair persona.';
+});
+
+$('presetTrust').addEventListener('click', () => {
+  applyResult({
+    mode: 'trust',
+    content: {
+      heroTitle: 'Replace your system once, and do it right.',
+      heroLead: 'Licensed technicians, a 10-year parts warranty, and flat-rate pricing you approve before we start.',
+      heroCta: 'Book a Free Consultation'
+    },
+    highlightService: 'install'
+  });
+  $('status').textContent = 'Example applied (offline, no API call): planning-ahead persona.';
+});
+
+$('resetBtn').addEventListener('click', resetAll);
+
+$('fab').addEventListener('click', () => $('panel').classList.toggle('open'));
+$('panelClose').addEventListener('click', () => $('panel').classList.remove('open'));
+
+$('runAI').addEventListener('click', async () => {
+  const apiKey = $('apiKey').value.trim();
+  const persona = $('persona').value.trim();
+  const status = $('status');
+  if (!apiKey) { status.textContent = 'Enter an API key, or try the example buttons below instead.'; return; }
+  if (!persona) { status.textContent = 'Describe who you are and why you\'re here.'; return; }
+
+  $('runAI').disabled = true;
+  status.textContent = 'Model is personalizing the page…';
+
+  const prompt =
+    'You are a UI personalization engine for an AC installation and repair company landing page. ' +
+    'You control the ENTIRE page through the whitelisted mechanisms below — use whichever of them the ' +
+    'visitor\'s request actually calls for, and ONLY those. Never invent a key that is not listed. ' +
+    'Never change a mechanism the visitor did not ask for, even if you think it would also help — ' +
+    'a request about text size must not also change colors, a request about color must not also change mode, etc.\n\n' +
+    'A visitor described themselves or made a request: "' + persona + '"\n\n' +
+    'Return ONLY JSON with these top-level keys (all optional except you must return at least one):\n\n' +
+    '1. "mode": exactly "urgent" (visitor has an immediate problem, needs fast action) or "trust" ' +
+    '(visitor is planning ahead, comparing options, values credibility over speed). Include this ONLY when ' +
+    'the message itself describes an urgent problem or a planning/comparison situation — not for requests ' +
+    'that are purely about color, text size, or language.\n\n' +
+    '2. "highlightService": exactly one of "install", "repair", "maintenance", "emergency" — whichever ' +
+    'service is most relevant. Omit if none is clearly implied.\n\n' +
+    '3. "palette": an object for CHANGING COLORS ANYWHERE ON THE PAGE. Include only the keys the visitor ' +
+    'actually wants changed, each a hex color string. Available keys and their CURRENT values:\n' +
+    JSON.stringify(Object.fromEntries(PALETTE_KEYS.map(k => [k, getComputedStyle(document.documentElement).getPropertyValue('--' + k).trim() || ORIGINAL_PALETTE[k]]))) + '\n' +
+    '- "sand": main page background. "night": dark sections (hero, testimonials, footer) background. ' +
+    '"heat": primary warm accent color (buttons, highlights). "cool": secondary accent color (stats band, trust mode). ' +
+    '"ink": main body text color. "card": white card backgrounds.\n' +
+    'Use this ONLY when the visitor asks to change a color. If they say "change the color" without specifying ' +
+    'which, change "heat". Keep colors readable (avoid near-white text on near-white backgrounds, etc).\n\n' +
+    '4. "content": an object for REWRITING OR TRANSLATING TEXT ANYWHERE ON THE PAGE — headlines, nav labels, ' +
+    'service descriptions, FAQ, footer, everything. Include ONLY the keys you are changing, each mapped to ' +
+    'the new text in the SAME key. Use this ONLY when the visitor asks to translate, rewrite, simplify, or ' +
+    'reword the page copy. If they ask to translate the page into another language, translate EVERY key below ' +
+    'into that language, not just one or two. The current page content, keyed exactly as you must return it:\n' +
+    JSON.stringify(ORIGINAL_CONTENT) + '\n\n' +
+    '5. "fontScale": a number from 1.0 to 1.6. Use this ONLY when the visitor says text is too small, hard to ' +
+    'read, or asks for bigger text, or mentions low vision. 1.0 = default size, 1.6 = maximum. Never include ' +
+    'this for requests about color, language, or anything else.\n\n' +
+    '6. "rationale": one short sentence explaining what you changed and why.\n\n' +
+    'Do not return HTML, CSS selectors, or any key not described above.\n\n' +
+    'Examples of matching a request to the RIGHT single mechanism (do not copy the wording, just the pattern):\n' +
+    '- "my AC just died" → mode + highlightService only.\n' +
+    '- "I can\'t read this small text" / "hůř vidím" → fontScale only.\n' +
+    '- "I\'m colorblind" / "hard to tell some colors apart" → palette only. Red-green color blindness is by ' +
+    'far the most common type, and red/green tones are the ones that get confused — blue and orange stay ' +
+    'clearly distinct for nearly everyone regardless of colorblindness type. So: set "cool" to a clear, ' +
+    'unambiguous BLUE (e.g. "#2A6FDB", not a blue-green/teal), keep "heat" a clear orange, and increase ' +
+    'contrast between "ink" and "sand"/"card". Never invert colors or use a gimmick filter.\n' +
+    '- "translate this to Czech / German / Spanish" → content only, every key translated.\n' +
+    '- "make the accent purple" → palette only ("heat").\n' +
+    'A request matching one pattern must return ONLY the key(s) that pattern needs.';
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 2500,
+        temperature: 0,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    if (!res.ok) throw new Error('API error ' + res.status);
+    const json = await res.json();
+    const text = json.content.map(b => b.text || '').join('');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const data = JSON.parse(clean);
+    applyResult(data);
+    status.textContent = 'AI decision: ' + (data.rationale || 'Personalized.');
+  } catch (e) {
+    status.textContent = 'Error: ' + e.message + ' — try the example buttons instead.';
+  } finally {
+    $('runAI').disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
